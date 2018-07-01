@@ -1,9 +1,9 @@
 {
-  "name": "guld-user-cli",
-  "version": "0.2.0",
-  "description": "Guld user management tools. Get, list, and check users of the guld group.",
+  "name": "guld-git-path-cli",
+  "version": "1.0.0",
+  "description": "Guld tool for getting the git directory of a path, or converting local paths into git-friendly repo names.",
   "bin": {
-    "guld-user": "./cli.js"
+    "guld-git-path": "./cli.js"
   },
   "scripts": {
     "lint": "eslint --env browser *.js*",
@@ -18,10 +18,7 @@
   "author": "isysd",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.16.0",
-    "guld-git-config": "^1.1.1",
-    "guld-user": "^0.2.0",
-    "inquirer": "^6.0.0"
+    "commander": "^2.16.0"
   },
   "devDependencies": {
     "eslint": "^5.0.1",

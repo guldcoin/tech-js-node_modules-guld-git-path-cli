@@ -18,7 +18,7 @@ program
   .command('dir [path]')
   .description('Guld tool for getting the git directory of a path.')
   .action(async (p, options) => {
-    console.log(getGitDir(p))
+    console.log(await getGitDir(p))
   })
 
 program.parse(process.argv)

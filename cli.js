@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 const { getGitDir, pathEscape } = require('guld-git-path')
 const program = require('commander')
-const VERSION = require('./package.json').version
+const thispkg = require(`${__dirname}/package.json`)
+const runCLI = require('guld-cli-run')
 
 /* eslint-disable no-console */
 program
-  .name('guld-git-path')
-  .description('Blocktree path resolution tools.')
-  .version(VERSION)
+  .name(thispkg.name.replace('-cli', ''))
+  .version(thispkg.version)
+  .description(thispkg.description)
 program
   .command('escape [path]')
   .description('Convert a local path into an escaped blocktree path, like used in git repo names.')
@@ -21,5 +22,6 @@ program
     console.log(await getGitDir(p))
   })
 
-program.parse(process.argv)
-if (program.args.length === 0) console.log(pathEscape())
+runCLI.bind(program)(() => console.log(pathEscape()))
+/* eslint-enable no-console */
+module.exports = program
